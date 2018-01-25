@@ -52,7 +52,7 @@
 
 (defn credits
   []
-  [:span.credits "Created with ❤ for B"])
+  [:a {:href "https://github.com/cjsauer/printer-double-sider"} "Created with ❤ for B"])
 
 (defn help-steps
   []
@@ -101,9 +101,3 @@
 
 (defn render []
   (reagent/render [app] (js/document.getElementById "app")))
-
-(comment
-
-  (range 41)
-
-  )
