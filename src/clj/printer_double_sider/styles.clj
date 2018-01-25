@@ -6,6 +6,6 @@
   [:.app-container {:display "flex"
                     :flex-direction "column"
                     :align-items "center"
-                    :padding-top (u/px 50)}]
-  [:.print-panel {:width (u/px 400)}]
+                    :padding-bottom (u/px 100)}]
+  [:.print-panel :.help-steps {:width (u/px 450)}]
   [:.credits {:color "#999"}])

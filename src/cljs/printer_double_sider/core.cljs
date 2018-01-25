@@ -22,7 +22,7 @@
   (s/join "," (map page-range->str prs)))
 
 (defonce app-state (atom {:num-pages 30
-                          :slides-per-page 3}))
+                          :slides-per-page 1}))
 
 (defn num-input
   [{:keys [id label value change-fn]}]
@@ -54,9 +54,27 @@
   []
   [:span.credits "Created with ❤ for B"])
 
+(defn help-steps
+  []
+  [:div.help-steps
+   [:ol
+    [:li "Enter the number of pages you need to print"]
+    [:li "Enter the number of 'slides' per page (optional)"]
+    [:li "Copy the text from 'Side one' into your print tool's (e.g. Word, Powerpoint) 'page ranges' input"]
+    [:li "Print! Be sure to take note of the orientation (e.g. upside-down) and
+     side that your printer prints to (e.g. top/bottom)."]
+    [:li "Insert the printed pages back into the printer to prepare for side two"]
+    [:li "Copy the text from 'Side two' into your print tool's 'page ranges' input"]
+    [:li "Print!!"]]])
+
+(defn jumbotron
+  []
+  [:div.jumbotron
+   [:h1 "Printer Double Sider"]
+   [:p "Easy double-sided printing on printers that don't support it"]])
+
 (defn print-panel [{:keys [num-pages slides-per-page]}]
   [:div.print-panel
-   [:h1 "Printer Double Sider"]
    [:form
     [num-input {:id "num-pages-input"
                 :label "Number of pages"
@@ -76,7 +94,9 @@
 (defn app
   []
   [:div.app-container
+   [jumbotron]
    [print-panel @app-state]
+   [help-steps]
    [credits]])
 
 (defn render []

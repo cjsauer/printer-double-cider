@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
-.print-panel {
-  width: 400px;
+.print-panel, .help-steps {
+  width: 450px;
 }
 
 .credits {
