@@ -32,23 +32,19 @@
     {:id id
      :type "number"
      :min min
-     :value (if (js/isNaN value) 0 value)
+     :value (if (js/isNaN value) "" value)
      :on-change #(change-fn (try (js/parseInt (.. % -target -value))
                                  (catch js/Error e 0)))}]])
 
 (defn range-output
-  [{:keys [side-key num-pages slides-per-page]}]
+  [{:keys [side-key label num-pages slides-per-page]}]
   (let [range-str (if (and (> num-pages 0) (> slides-per-page 0))
                     (-> (page-ranges num-pages slides-per-page)
                         side-key
                         page-range-coll->str)
                     "")]
     [:div.form-group
-     [:label
-      {:for (str side-key)}
-      (case side-key
-        :side-one "Side one"
-        :side-two "Side two")]
+     [:label {:for (str side-key)} label]
      [:textarea.form-control
       {:value (str range-str)
        :readOnly true}]]))
@@ -92,9 +88,11 @@
                 :value slides-per-page
                 :change-fn #(swap! app-state assoc :slides-per-page %)}]
     [range-output {:side-key :side-one
+                   :label "Side one"
                    :num-pages num-pages
                    :slides-per-page slides-per-page}]
     [range-output {:side-key :side-two
+                   :label "Side two"
                    :num-pages num-pages
                    :slides-per-page slides-per-page}]]])
 
