@@ -7,4 +7,4 @@
                     :flex-direction "column"
                     :align-items "center"
                     :padding-bottom (u/px 100)}]
-  [:.print-panel :.help-steps {:width (u/px 450)}])
+  )

@@ -93,7 +93,7 @@
 
 (defn app
   []
-  [:div.app-container
+  [:div.container
    [jumbotron]
    [print-panel @app-state]
    [help-steps]
