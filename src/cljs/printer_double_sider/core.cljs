@@ -52,7 +52,8 @@
 
 (defn credits
   []
-  [:a {:href "https://github.com/cjsauer/printer-double-sider"} "Created with ❤ for B"])
+  [:div.credits
+   [:a {:href "https://github.com/cjsauer/printer-double-sider"} "Created with ❤ for B"]])
 
 (defn help-steps
   []
