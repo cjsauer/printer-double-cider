@@ -3,8 +3,6 @@
             [garden.units :as u]))
 
 (defstyles style
-  [:.app-container {:display "flex"
-                    :flex-direction "column"
-                    :align-items "center"
-                    :padding-bottom (u/px 100)}]
-  [:.credits {:margin [[(u/px 50) 0]]}])
+  [:.print-panel {:margin-bottom (u/px 50)}]
+  [:.credits {:margin [[(u/px 50) 0]]
+              :text-align "center"}])

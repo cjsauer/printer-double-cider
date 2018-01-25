@@ -61,6 +61,7 @@
 (defn help-steps
   []
   [:div.help-steps
+   [:h3 "Instructions"]
    [:ol
     [:li "Enter the number of pages you need to print"]
     [:li "Enter the number of 'slides' per page (optional)"]
