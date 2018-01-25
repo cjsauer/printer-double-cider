@@ -50,6 +50,10 @@
       {:value (str range-str)
        :readOnly true}]]))
 
+(defn credits
+  []
+  [:span.credits "Created with ❤ for B"])
+
 (defn print-panel [{:keys [num-pages slides-per-page]}]
   [:div.print-panel
    [:h1 "Printer Double Sider"]
@@ -67,13 +71,13 @@
                    :slides-per-page slides-per-page}]
     [range-output {:side-key :side-two
                    :num-pages num-pages
-                   :slides-per-page slides-per-page}]
-    ]])
+                   :slides-per-page slides-per-page}]]])
 
 (defn app
   []
   [:div.app-container
-   [print-panel @app-state]])
+   [print-panel @app-state]
+   [credits]])
 
 (defn render []
   (reagent/render [app] (js/document.getElementById "app")))

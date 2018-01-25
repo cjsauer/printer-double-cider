@@ -4,6 +4,8 @@
 
 (defstyles style
   [:.app-container {:display "flex"
-                    :justify-content "center"
+                    :flex-direction "column"
+                    :align-items "center"
                     :padding-top (u/px 50)}]
-  [:.print-panel {:width (u/px 400)}])
+  [:.print-panel {:width (u/px 400)}]
+  [:.credits {:color "#999"}])
