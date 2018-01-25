@@ -1,3 +1,9 @@
-h1 {
-  text-decoration: underline;
+.app-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.print-panel {
+  width: 400px;
 }
