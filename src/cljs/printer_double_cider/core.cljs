@@ -2,6 +2,11 @@
   (:require [reagent.core :as reagent :refer [atom]]
             [clojure.string :as s]))
 
+(def app-title
+  "Printer Double Cider")
+(def app-tagline
+  "Easy double-sided printing at home!")
+
 (enable-console-print!)
 
 (defn page-ranges
@@ -78,8 +83,8 @@
 (defn jumbotron
   []
   [:div.jumbotron
-   [:h1 "Printer Double Cider"]
-   [:p "Easy double-sided printing on printers that don't support it"]])
+   [:h1 app-title]
+   [:p app-tagline]])
 
 (defn print-panel [{:keys [num-pages slides-per-page]}]
   [:div.print-panel
