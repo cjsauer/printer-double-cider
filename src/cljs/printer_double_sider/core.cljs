@@ -61,9 +61,9 @@
   [:div.credits
    [:a {:href "https://github.com/cjsauer/printer-double-sider"} "Created with ❤ for B"]])
 
-(defn help-steps
+(defn instructions
   []
-  [:div.help-steps
+  [:div.instructions
    [:h3 "Instructions"]
    [:ol
     [:li "Enter the number of pages you need to print"]
@@ -111,7 +111,7 @@
   [:div.container
    [jumbotron]
    [print-panel @app-state]
-   [help-steps]
+   [instructions]
    [credits]])
 
 (defn render []
