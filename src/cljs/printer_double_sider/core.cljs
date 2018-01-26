@@ -25,7 +25,7 @@
                           :slides-per-page 1}))
 
 (defn num-input
-  [{:keys [id label value min max change-fn]}]
+  [{:keys [id label help-text value min max change-fn]}]
   [:div.form-group
    [:label {:for id} label]
    [:input.form-control.form-control-lg
@@ -39,11 +39,13 @@
                                   (and (>= v min) (<= v max)))
                           (change-fn v)))
                       (catch js/Error e
-                        (js/console.warn "Something weird is happening...")))}]])
+                        (js/console.warn "Something weird is happening...")))}]
+   (when help-text
+     [:small.form-text.text-muted help-text])])
 
 (defn range-output
   [{:keys [side-key label num-pages slides-per-page]}]
-  (let [range-str (if (and (> num-pages 0) (> slides-per-page 0))
+  (let [range-str (if (and (> num-pages 0))
                     (-> (page-ranges num-pages slides-per-page)
                         side-key
                         page-range-coll->str)
@@ -90,6 +92,7 @@
                 :change-fn #(swap! app-state assoc :num-pages %)}]
     [num-input {:id "slides-per-page-input"
                 :label "Slides per page"
+                :help-text "(e.g. Powerpoint slides per page)"
                 :min 1
                 :max 10000
                 :value slides-per-page
