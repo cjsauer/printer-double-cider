@@ -83,8 +83,8 @@
 (defn jumbotron
   []
   [:div.jumbotron
-   [:h1 app-title]
-   [:p app-tagline]])
+   [:h1.display-4 app-title]
+   [:p.lead app-tagline]])
 
 (defn print-panel [{:keys [num-pages slides-per-page]}]
   [:div.print-panel
