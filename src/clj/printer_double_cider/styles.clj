@@ -1,4 +1,4 @@
-(ns printer-double-sider.styles
+(ns printer-double-cider.styles
   (:require [garden-watcher.def :refer [defstyles]]
             [garden.units :as u]))
 

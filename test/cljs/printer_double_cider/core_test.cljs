@@ -1,4 +1,4 @@
-(ns printer-double-sider.core-test
+(ns printer-double-cider.core-test
   (:require-macros [cljs.test :refer (is deftest testing)])
   (:require [cljs.test]))
 

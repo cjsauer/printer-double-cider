@@ -1,4 +1,4 @@
-(ns printer-double-sider.example-test
+(ns printer-double-cider.example-test
   (:require [clojure.test :refer :all]))
 
 (deftest example-passing-test

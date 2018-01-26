@@ -1,6 +1,6 @@
-(ns printer-double-sider.components.ui
+(ns printer-double-cider.components.ui
   (:require [com.stuartsierra.component :as component]
-            [printer-double-sider.core :refer [render]]))
+            [printer-double-cider.core :refer [render]]))
 
 (defrecord UIComponent []
   component/Lifecycle

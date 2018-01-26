@@ -1,4 +1,4 @@
-(ns printer-double-sider.common)
+(ns printer-double-cider.common)
 
 (defn shared-fn
   "A function that is shared between clj and cljs"

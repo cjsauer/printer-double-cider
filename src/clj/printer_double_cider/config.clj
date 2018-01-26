@@ -1,4 +1,4 @@
-(ns printer-double-sider.config
+(ns printer-double-cider.config
   (:require [environ.core :refer [env]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [ring.middleware.gzip :refer [wrap-gzip]]

@@ -1,4 +1,4 @@
-# printer-double-sider
+# printer-double-cider
 
 
 ## Development
@@ -35,13 +35,13 @@ and a REPL prompt that looks like `cljs.user=>`.
 Open `resources/public/css/style.css` and change some styling of the
 H1 element. Notice how it's updated instantly in the browser.
 
-Open `src/cljs/printer-double-sider/core.cljs`, and change `dom/h1` to
+Open `src/cljs/printer-double-cider/core.cljs`, and change `dom/h1` to
 `dom/h2`. As soon as you save the file, your browser is updated.
 
 In the REPL, type
 
 ```
-(ns printer-double-sider.core)
+(ns printer-double-cider.core)
 (swap! app-state assoc :text "Interactivity FTW")
 ```
 

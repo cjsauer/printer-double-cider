@@ -1,6 +1,6 @@
-(ns printer-double-sider.common-test
+(ns printer-double-cider.common-test
   #? (:cljs (:require-macros [cljs.test :refer (is deftest testing)]))
-  (:require [printer-double-sider.common :as sut]
+  (:require [printer-double-cider.common :as sut]
             #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test])))
 

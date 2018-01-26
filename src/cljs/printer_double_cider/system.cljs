@@ -1,6 +1,6 @@
-(ns printer-double-sider.system
+(ns printer-double-cider.system
   (:require [com.stuartsierra.component :as component]
-            [printer-double-sider.components.ui :refer [new-ui-component]]))
+            [printer-double-cider.components.ui :refer [new-ui-component]]))
 
 (declare system)
 

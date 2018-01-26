@@ -1,4 +1,4 @@
-(ns printer-double-sider.core
+(ns printer-double-cider.core
   (:require [reagent.core :as reagent :refer [atom]]
             [clojure.string :as s]))
 
@@ -59,7 +59,7 @@
 (defn credits
   []
   [:div.credits
-   [:a {:href "https://github.com/cjsauer/printer-double-sider"} "Created with ❤ for B"]])
+   [:a {:href "https://github.com/cjsauer/printer-double-cider"} "Created with ❤ for B"]])
 
 (defn instructions
   []
@@ -78,7 +78,7 @@
 (defn jumbotron
   []
   [:div.jumbotron
-   [:h1 "Printer Double Sider"]
+   [:h1 "Printer Double Cider"]
    [:p "Easy double-sided printing on printers that don't support it"]])
 
 (defn print-panel [{:keys [num-pages slides-per-page]}]

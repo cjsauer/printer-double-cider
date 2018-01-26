@@ -1,4 +1,4 @@
-(ns printer-double-sider.routes
+(ns printer-double-cider.routes
   (:require [clojure.java.io :as io]
             [compojure.core :refer [ANY GET PUT POST DELETE routes]]
             [compojure.route :refer [resources]]

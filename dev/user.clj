@@ -1,5 +1,5 @@
 (ns user
-  (:require [printer-double-sider.application]
+  (:require [printer-double-cider.application]
             [com.stuartsierra.component :as component]
             [figwheel-sidecar.config :as fw-config]
             [figwheel-sidecar.system :as fw-sys]
@@ -8,13 +8,13 @@
             [ring.middleware.reload :refer [wrap-reload]]
             [figwheel-sidecar.repl-api :as figwheel]
             [garden-watcher.core :refer [new-garden-watcher]]
-            [printer-double-sider.config :refer [config]]))
+            [printer-double-cider.config :refer [config]]))
 
 (defn dev-system []
-  (assoc (printer-double-sider.application/app-system (config))
+  (assoc (printer-double-cider.application/app-system (config))
     :figwheel-system (fw-sys/figwheel-system (fw-config/fetch-config))
     :css-watcher (fw-sys/css-watcher {:watch-paths ["resources/public/css"]})
-    :garden-watcher (new-garden-watcher ['printer-double-sider.styles])))
+    :garden-watcher (new-garden-watcher ['printer-double-cider.styles])))
 
 (set-refresh-dirs "src" "dev")
 (reloaded.repl/set-init! #(dev-system))

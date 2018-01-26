@@ -1,6 +1,6 @@
-(defproject printer-double-sider "0.1.0-SNAPSHOT"
+(defproject printer-double-cider "0.1.0-SNAPSHOT"
   :description "A helpful tool for people with printers that don't support double-sided printing"
-  :url "https://github.com/cjsauer/printer-double-sider"
+  :url "https://github.com/cjsauer/printer-double-cider"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
@@ -31,10 +31,10 @@
 
   :clean-targets ^{:protect false} [:target-path :compile-path "resources/public/js"]
 
-  :uberjar-name "printer-double-sider.jar"
+  :uberjar-name "printer-double-cider.jar"
 
   ;; Use `lein run` if you just want to start a HTTP server, without figwheel
-  :main printer-double-sider.application
+  :main printer-double-cider.application
 
   ;; nREPL by default starts in the :main namespace, we want to start in `user`
   ;; because that's where our development helper functions like (go) and
@@ -45,7 +45,7 @@
               [{:id "app"
                 :source-paths ["src/cljs" "src/cljc" "dev"]
 
-                :figwheel {:on-jsload "printer-double-sider.system/reset"}
+                :figwheel {:on-jsload "printer-double-cider.system/reset"}
 
                 :compiler {:main cljs.user
                            :asset-path "js/compiled/out"
@@ -56,13 +56,13 @@
                {:id "test"
                 :source-paths ["src/cljs" "test/cljs" "src/cljc" "test/cljc"]
                 :compiler {:output-to "resources/public/js/compiled/testable.js"
-                           :main printer-double-sider.test-runner
+                           :main printer-double-cider.test-runner
                            :optimizations :none}}
 
                {:id "min"
                 :source-paths ["src/cljs" "src/cljc"]
                 :jar true
-                :compiler {:main printer-double-sider.system
+                :compiler {:main printer-double-cider.system
                            :output-to "resources/public/js/compiled/printer_double_sider.js"
                            :output-dir "target"
                            :source-map-timestamp true
@@ -116,7 +116,7 @@
              {:source-paths ^:replace ["src/clj" "src/cljc"]
               :prep-tasks ["compile"
                            ["cljsbuild" "once" "min"]
-                           ["run" "-m" "garden-watcher.main" "printer-double-sider.styles"]]
+                           ["run" "-m" "garden-watcher.main" "printer-double-cider.styles"]]
               :hooks []
               :omit-source true
               :aot :all}})
