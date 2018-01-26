@@ -34,7 +34,7 @@
      :min min
      :value (if (js/isNaN value) "" value)
      :on-change #(change-fn (try (js/parseInt (.. % -target -value))
-                                 (catch js/Error e 0)))}]])
+                                 (catch js/Error e "")))}]])
 
 (defn range-output
   [{:keys [side-key label num-pages slides-per-page]}]
