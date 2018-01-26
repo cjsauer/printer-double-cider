@@ -48,17 +48,33 @@
    (when help-text
      [:small.form-text.text-muted help-text])])
 
+;; Relies on clipboard.js https://clipboardjs.com/
+(defn copy-to-clipboard-btn
+  [{:keys [target-id]}]
+  (let [id (str target-id "-copy")]
+    (reagent/create-class
+     {:component-did-mount #(js/Clipboard. (str "#" id))
+      :reagent-render
+      (fn [{:keys [target-id]}]
+        [:button.btn.btn-link.clipboard-btn
+         {:id id
+          :data-clipboard-target (str "#" target-id)
+          :on-click #(.preventDefault %)}
+         "Copy to clipboard"])})))
+
 (defn range-output
-  [{:keys [side-key label num-pages slides-per-page]}]
+  [{:keys [id side-key label num-pages slides-per-page]}]
   (let [range-str (if (and (> num-pages 0) (> slides-per-page 0))
                     (-> (page-ranges num-pages slides-per-page)
                         side-key
                         page-range-coll->str)
                     "")]
-    [:div.form-group
+    [:div.form-group.range-output
      [:label {:for (str side-key)} label]
+     [copy-to-clipboard-btn {:target-id id}]
      [:textarea.form-control
-      {:value (str range-str)
+      {:id id
+       :value (str range-str)
        :readOnly true}]]))
 
 (defn credits
@@ -102,11 +118,13 @@
                 :max 10000
                 :value slides-per-page
                 :change-fn #(swap! app-state assoc :slides-per-page %)}]
-    [range-output {:side-key :side-one
+    [range-output {:id "side-one-output"
+                   :side-key :side-one
                    :label "Side one"
                    :num-pages num-pages
                    :slides-per-page slides-per-page}]
-    [range-output {:side-key :side-two
+    [range-output {:id "side-two-output"
+                   :side-key :side-two
                    :label "Side two"
                    :num-pages num-pages
                    :slides-per-page slides-per-page}]]])

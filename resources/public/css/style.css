@@ -6,3 +6,7 @@
   margin: 50px 0;
   text-align: center;
 }
+
+.range-output .clipboard-btn {
+  float: right;
+}

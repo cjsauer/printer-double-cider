@@ -5,4 +5,7 @@
 (defstyles style
   [:.print-panel {:margin-bottom (u/px 50)}]
   [:.credits {:margin [[(u/px 50) 0]]
-              :text-align "center"}])
+              :text-align "center"}]
+  [:.range-output
+   [:.clipboard-btn {:float "right"}]]
+  )
