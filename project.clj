@@ -49,7 +49,7 @@
 
                 :compiler {:main cljs.user
                            :asset-path "js/compiled/out"
-                           :output-to "resources/public/js/compiled/printer_double_sider.js"
+                           :output-to "resources/public/js/compiled/printer_double_cider.js"
                            :output-dir "resources/public/js/compiled/out"
                            :source-map-timestamp true}}
 
@@ -63,7 +63,7 @@
                 :source-paths ["src/cljs" "src/cljc"]
                 :jar true
                 :compiler {:main printer-double-cider.system
-                           :output-to "resources/public/js/compiled/printer_double_sider.js"
+                           :output-to "resources/public/js/compiled/printer_double_cider.js"
                            :output-dir "target"
                            :source-map-timestamp true
                            :optimizations :advanced
