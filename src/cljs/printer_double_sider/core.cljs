@@ -45,7 +45,7 @@
 
 (defn range-output
   [{:keys [side-key label num-pages slides-per-page]}]
-  (let [range-str (if (and (> num-pages 0))
+  (let [range-str (if (and (> num-pages 0) (> slides-per-page 0))
                     (-> (page-ranges num-pages slides-per-page)
                         side-key
                         page-range-coll->str)
