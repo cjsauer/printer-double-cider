@@ -25,16 +25,21 @@
                           :slides-per-page 1}))
 
 (defn num-input
-  [{:keys [id label value min change-fn]}]
+  [{:keys [id label value min max change-fn]}]
   [:div.form-group
    [:label {:for id} label]
    [:input.form-control.form-control-lg
     {:id id
      :type "number"
      :min min
+     :max max
      :value (if (js/isNaN value) "" value)
-     :on-change #(change-fn (try (js/parseInt (.. % -target -value))
-                                 (catch js/Error e "")))}]])
+     :on-change #(try (let [v (js/parseInt (.. % -target -value))]
+                        (when (or (= "" (.. % -target -value))
+                                  (and (>= v min) (<= v max)))
+                          (change-fn v)))
+                      (catch js/Error e
+                        (js/console.warn "Something weird is happening...")))}]])
 
 (defn range-output
   [{:keys [side-key label num-pages slides-per-page]}]
@@ -80,11 +85,13 @@
     [num-input {:id "num-pages-input"
                 :label "Number of pages"
                 :min 1
+                :max 10000
                 :value num-pages
                 :change-fn #(swap! app-state assoc :num-pages %)}]
     [num-input {:id "slides-per-page-input"
                 :label "Slides per page"
                 :min 1
+                :max 10000
                 :value slides-per-page
                 :change-fn #(swap! app-state assoc :slides-per-page %)}]
     [range-output {:side-key :side-one
