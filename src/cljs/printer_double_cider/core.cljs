@@ -85,14 +85,14 @@
   [:div.print-panel
    [:form
     [num-input {:id "num-pages-input"
-                :label "Number of pages"
+                :label "Number of pages (or slides)"
                 :min 1
                 :max 10000
                 :value num-pages
                 :change-fn #(swap! app-state assoc :num-pages %)}]
     [num-input {:id "slides-per-page-input"
-                :label "Slides per page"
-                :help-text "(e.g. Powerpoint slides per page)"
+                :label "Slides per side of paper"
+                :help-text "If not using Powerpoint or similar, leave this at 1"
                 :min 1
                 :max 10000
                 :value slides-per-page
